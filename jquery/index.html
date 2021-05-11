@@ -1,0 +1,73 @@
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="Toolbar.js"></script>
+</head>
+
+<style>
+    #toolbar{
+        
+    }
+
+    .toolbar{
+        
+        background-color:green;
+        height: 60px;
+        padding:10px;
+    }
+    .pull-left{
+        float:left;
+    }
+    .buttonToolbar{
+        margin-left:10px;
+        height: 60px;
+        width: 60px;
+    }
+
+    .buttonToolbar-mousedown{
+        background-color:green;        
+    }
+
+    .buttonToolbar-mouseup{
+        background-color:blue;        
+    }
+
+    .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome and Opera */
+        }
+    
+</style>
+<body>
+<div id="toolbar" >
+</div>
+<div id="counter"></div>
+
+<script lang="javascript">
+        var counter = 0;
+        var toolbar = Toolbar.create('#toolbar',null);
+        toolbar.addButton({title:'Add',onClick:function(e){
+                incrementCounter();
+            }
+        });
+        toolbar.addButton({title:'Minus',onClick:function(e){
+            decrementCounter();
+            }
+        });
+        toolbar.render();
+
+        function incrementCounter(){
+            $('#counter').html(++counter);
+        }
+
+        function decrementCounter(){
+            $('#counter').html(--counter);
+        }
+</script>
+</body>
+</html>
